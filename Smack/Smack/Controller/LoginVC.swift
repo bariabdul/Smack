@@ -1,23 +1,19 @@
 //
-//  ChannelVC.swift
+//  LoginVC.swift
 //  Smack
 //
-//  Created by Bari Abdul on 1/21/18.
+//  Created by Bari Abdul on 1/22/18.
 //  Copyright © 2018 Bari Abdul. All rights reserved.
 //
 
 import UIKit
 
-class ChannelVC: UIViewController {
+class LoginVC: UIViewController {
 
-    @IBOutlet weak var loginButton: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,8 +21,8 @@ class ChannelVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func loginButtonPressed(_ sender: Any) {
-        performSegue(withIdentifier: TO_LOGIN, sender: nil)
+    @IBAction func closePressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     /*
