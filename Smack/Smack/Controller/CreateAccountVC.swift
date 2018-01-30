@@ -15,6 +15,9 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var userImage: UIImageView!
     
+    var avatarName = "profileDefault"
+    var avatarColor = "[0.5, 0.5, 0.5, 1]"
+    
     @IBAction func createAccountPressed(_ sender: Any) {
         guard let email = emailText.text , emailText.text != "" else {
             return
@@ -22,12 +25,20 @@ class CreateAccountVC: UIViewController {
         guard let password = passwordText.text , passwordText.text != "" else {
             return
         }
+        guard let name = usernameText.text , usernameText.text != "" else {
+            return
+        }
         
         AuthService.instance.registerUser(email: email, password: password) { (success) in
             if success {
                 AuthService.instance.loginUser(email: email, password: password, completion: { (success) in
                     if success {
-                        print("User logged in successfully!", AuthService.instance.authToken)
+                        AuthService.instance.createUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: { (success) in
+                            if success {
+                                print(UserDataService.instance.name, UserDataService.instance.avatarName)
+                                self.performSegue(withIdentifier: UNWIND, sender: nil)
+                            }
+                        })
                     }
                 })
                 
