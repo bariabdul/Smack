@@ -15,8 +15,8 @@ let URL_REGISTER = "\(BASE_URL)account/register"
 let URL_LOGIN = "\(BASE_URL)account/login"
 let URL_USER_ADD = "\(BASE_URL)user/add"
 let URL_USER_BY_EMAIL = "\(BASE_URL)user/byEmail/"
-let URL_GET_CHANNELS = "\(BASE_URL)channel"
-let URL_GET_MESSAGES = "\(BASE_URL)message/byChannel"
+let URL_GET_CHANNELS = "\(BASE_URL)channel/"
+let URL_GET_MESSAGES = "\(BASE_URL)message/byChannel/"
 
 let purplePlaceHolder = #colorLiteral(red: 0.3568627451, green: 0.6235294118, blue: 0.7960784314, alpha: 0.5)
 
